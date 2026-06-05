@@ -122,6 +122,31 @@
   </div>
 </section>
 
+<section>
+  <div class="wrap">
+    <p class="act-label">Robustness check</p>
+    <h2>Does a second source agree?</h2>
+    <p>A single dataset can mislead &mdash; what if the 2023 spike were just a quirk of
+    Media&nbsp;Cloud? To test it, we bring back <strong>GDELT</strong>, the news database we
+    rejected earlier. Its <em>raw</em> article counts are unusable (they balloon ~10,000&times;
+    when GDELT expanded its sources in 2015), but GDELT also reports a <strong>normalized</strong>
+    figure &mdash; AI's <em>share</em> of all the coverage it monitors &mdash; which cancels out
+    that growth, just as Media&nbsp;Cloud's ratio does.</p>
+    <p>Plotted together over their 2017&ndash;2023 overlap, the two independent datasets
+    <strong>track each other closely and, in 2023, land at almost the same value</strong>
+    (~1.04% and ~1.05%). When two sources built by different teams, with different methods,
+    agree this precisely, the post-ChatGPT surge is clearly <strong>real, not an artifact</strong>.</p>
+    <figure>
+      <img src="figures/panel4_robustness.png" alt="Line chart: GDELT and Media Cloud normalized AI coverage track closely from 2017 to 2023 and both spike to about 1% in 2023.">
+      <figcaption>Two independent news datasets, each normalized to remove the effect of how
+      many sources they index. They move together and spike in unison after ChatGPT &mdash;
+      independent corroboration of the same history.</figcaption>
+    </figure>
+    <p class="note">This is also how a rejected source can still earn its place: GDELT's raw
+    counts stay out of the trend, but its normalized metric becomes a useful second witness.</p>
+  </div>
+</section>
+
 <section id="method">
   <div class="wrap">
     <h2>Sources &amp; method</h2>

@@ -49,6 +49,14 @@ ngram["ml"] = ngram["machine_learning"] * 1e6
 
 mc = pd.read_csv(DATA / "mediacloud_ai_2010_2023.csv")
 
+# GDELT normalized "Volume Intensity" (% of all monitored coverage), daily 2017-2023.
+# Used only as a robustness check: a second, independent news source. GDELT's raw
+# event counts are unusable as a trend (see README), but this *normalized* metric is
+# comparable across time. Aggregated to yearly means for the 2017-2023 overlap.
+gdelt_daily = pd.read_csv(DATA / "gdelt_ai_volume_daily_2017_2023.csv")
+gdelt_daily["year"] = pd.to_datetime(gdelt_daily["Date"]).dt.year
+gdelt_year = gdelt_daily[gdelt_daily["year"] <= 2023].groupby("year")["Value"].mean()
+
 events_ngram = {
     1997: "Deep Blue\nvs Kasparov",
     2011: "IBM Watson\nwins Jeopardy",
@@ -147,10 +155,39 @@ def draw_share(ax):
                 arrowprops=dict(arrowstyle="->", color=FG))
 
 
+TEAL = "#159A8C"
+
+
+def draw_robustness(ax):
+    """Robustness check: GDELT and Media Cloud, two independent news datasets,
+    plotted as normalized % of coverage over their 2017-2023 overlap."""
+    mc_over = mc[(mc["year"] >= 2017) & (mc["year"] <= 2023)]
+    ax.plot(mc_over["year"], mc_over["ratio"] * 100, color=PURPLE, lw=2.5,
+            marker="o", ms=6, label="Media Cloud — AI share of all news")
+    ax.plot(gdelt_year.index, gdelt_year.values, color=TEAL, lw=2.5,
+            marker="s", ms=6, label="GDELT — AI % of monitored coverage")
+    ax.axvline(2022, color=ACCENT, lw=1, ls="--", alpha=0.6)
+    ax.text(2022.05, ax.get_ylim()[1] * 0.5, "ChatGPT\nlaunched", color=ACCENT,
+            fontsize=7.5, bbox=dict(facecolor=BG, edgecolor="none", alpha=0.7))
+    ax.set_title("Robustness check: two independent news datasets agree (2017-2023)\n"
+                 "Both normalize away source growth -- and both spike after ChatGPT",
+                 color=FG, fontsize=11, fontweight="bold", pad=10)
+    ax.set_ylabel("% of news coverage", color=FG, fontsize=10)
+    ax.set_xticks(range(2017, 2024))
+    ax.set_xticklabels(range(2017, 2024), color=FG)
+    ax.tick_params(axis="y", colors=FG)
+    ax.legend(facecolor=BG, edgecolor=SPINE, labelcolor=FG, fontsize=9, loc="upper left")
+
+
 PANELS = [
     (draw_ngram, "panel1_ngram.png"),
     (draw_volume, "panel2_volume.png"),
     (draw_share, "panel3_share.png"),
+]
+# Supplementary panel — a methodological robustness check, shown on the web exhibit
+# but kept out of the main three-act narrative figure.
+EXTRA_PANELS = [
+    (draw_robustness, "panel4_robustness.png"),
 ]
 
 
@@ -174,7 +211,7 @@ def save_combined():
 def save_panels():
     """Standalone panels for the web exhibit (index.html)."""
     saved = []
-    for draw, name in PANELS:
+    for draw, name in PANELS + EXTRA_PANELS:
         fig, ax = plt.subplots(figsize=(11, 5.5))
         fig.patch.set_facecolor(BG)
         style_ax(ax)
