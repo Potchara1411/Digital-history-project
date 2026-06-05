@@ -126,8 +126,13 @@ def draw_volume(ax):
 def draw_share(ax):
     ax.fill_between(mc["year"], mc["ratio"] * 100, color=PURPLE, alpha=0.25)
     ax.plot(mc["year"], mc["ratio"] * 100, color=PURPLE, lw=2.5, marker="o", ms=6)
-    for yr in events_mc:
+    top = ax.get_ylim()[1]
+    for yr, lbl in events_mc.items():
         ax.axvline(yr, color=ACCENT, lw=1, ls="--", alpha=0.6)
+        # 2023 is described by the value annotation below, so skip its line label.
+        if yr != 2023:
+            ax.text(yr + 0.1, top * 0.62, lbl, color=ACCENT, fontsize=7.5,
+                    bbox=dict(facecolor=BG, edgecolor="none", alpha=0.7))
     ax.set_title("Media Cloud: Share of all news coverage devoted to AI (2010-2023)\n"
                  "(AI articles / total articles per year)",
                  color=FG, fontsize=11, fontweight="bold", pad=10)
