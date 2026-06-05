@@ -97,7 +97,7 @@ def draw_ngram(ax):
         ax.text(yr + 0.2, ax.get_ylim()[1] * 0.05, lbl, color=ACCENT, fontsize=7.5,
                 va="bottom", bbox=dict(facecolor=BG, edgecolor="none", alpha=0.7))
     ax.annotate("AI Winter\n1990s decline", xy=(1995, ngram["ai"].iloc[5]),
-                xytext=(1992, ngram["ai"].iloc[5] + 0.3), color=MUTED, fontsize=8,
+                xytext=(1998.3, 1.78), color=MUTED, fontsize=8,
                 arrowprops=dict(arrowstyle="->", color=MUTED))
     ax.annotate('"Machine learning"\novertakes "AI" ~2013', xy=(2013, ngram["ml"].iloc[23]),
                 xytext=(2007, ngram["ml"].iloc[23] + 0.5), color=ACCENT, fontsize=8,
