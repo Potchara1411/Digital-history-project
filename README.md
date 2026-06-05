@@ -30,13 +30,25 @@ published via GitHub Pages) that walks through the history in three acts:
 | Source | File | Coverage | Notes |
 |--------|------|----------|-------|
 | Google Books Ngram | `data/ngram_ai_ml_1990_2019.csv` | 1990–2019 | Phrase frequency as a fraction of all text; multiplied by 1e6 in the chart for readability. |
-| Media Cloud (Harvard/MIT) | `data/mediacloud_ai_2010_2023.csv` | 2010–2023 | `count` = articles mentioning AI; `ratio` = count ÷ total articles that year. 1,600+ global English-language sources. |
+| Media Cloud | `data/mediacloud_ai_2010_2023.csv` | 2010–2023 | Yearly totals aggregated from the raw daily export `data/mediacloud_ai_daily_2010_2023.csv`. `count` = articles mentioning AI; `ratio` = count ÷ total articles that year. |
 | GDELT | `data/gdelt_results.csv` | 2010–2023 | **Evaluated and rejected** — see below. Kept for transparency. |
 
-> **TODO — confirm provenance before submitting.** For full reproducibility,
-> record the exact query strings and the date each dataset was accessed:
-> - Ngram: corpus used (e.g. *English 2019*), smoothing setting, case sensitivity.
-> - Media Cloud: the exact query, collection/source list, and export date.
+### Provenance
+
+**Google Books Ngram** — [Ngram Viewer](https://books.google.com/ngrams)
+- Search terms: `artificial intelligence`, `machine learning`
+- Corpus: **English 2019** (`en-2019`)
+- Smoothing: **3**
+- Years: **1990–2019**
+- Case-sensitive (the default; case-insensitive was *not* enabled)
+
+**Media Cloud** — [search.mediacloud.org](https://search.mediacloud.org)
+- Query: `artificial intelligence`
+- Collection: **Online News Archive** (`onlinenews-mediacloud`)
+- Date range: **2010-01-01 – 2023-12-31** (collected daily, then summed by year)
+- Exported: **2026-06-01**
+- The raw daily export (`count`, `total_count`, `ratio` per day) is kept at
+  `data/mediacloud_ai_daily_2010_2023.csv`; the yearly file is derived from it.
 
 ### Why GDELT was excluded
 
