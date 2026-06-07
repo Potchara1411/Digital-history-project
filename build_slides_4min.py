@@ -142,16 +142,15 @@ bullets(s, [
 ], Inches(0.95), Inches(1.72), Inches(11.6), Inches(1.0), size=16)
 picture_centered(s, FIG / "panel5_tone.png", Inches(2.9))
 
-# ---- 6 · Method credibility ----
+# ---- 6 · Does it hold up? (robustness) ----
 s = prs.slides.add_slide(BLANK)
-header(s, "WHY IT'S RIGOROUS", "I rejected a source — on purpose")
+header(s, "DOES IT HOLD UP?", "A second source agrees")
 bullets(s, [
-    ("I almost used GDELT — but its AI counts jump 347 → 53,000 → 3.9 MILLION in just two years",
-     INK),
-    ("That’s the database expanding its sources in 2015 — the instrument changed, not the world",
-     RED),
-    ("Catching that — source criticism — is the real scholarship behind the project", MUTED),
-], Inches(1.15), Inches(2.05), Inches(11.3), Inches(4), size=21, gap=20)
+    ("To check the 2023 spike is real, I compared it against a separate news database", INK),
+    ("The two track closely and land at nearly the same value in 2023 — the surge isn’t a "
+     "fluke of my data", PURPLE),
+], Inches(0.95), Inches(1.72), Inches(11.6), Inches(1.0), size=16)
+picture_centered(s, FIG / "panel4_robustness.png", Inches(2.9))
 
 # ---- 5 · Close ----
 s = prs.slides.add_slide(BLANK)
@@ -191,14 +190,12 @@ NOTES = [
     "SALIENCE: AI went from a scientific keyword to a geopolitical one, tied to US-China competition "
     "and existential risk. [~50s]",
 
-    "One methodological point I'm proud of. I almost used GDELT as my main news source — but its AI "
-    "counts jump from 347, to 53,000, to 3.9 MILLION in two years. That's not AI exploding; it's the "
-    "database expanding its own sources in 2015. The instrument changed, not the world. Catching "
-    "that — source criticism — is the real scholarship. [~35s]",
+    "And does it hold up? To make sure that 2023 spike is real and not a quirk of my data, I checked "
+    "it against a completely separate news database. The two track each other closely and in 2023 "
+    "land at almost exactly the same value — so I'm confident the surge is real. [~35s]",
 
-    "It's all a live web exhibit — with a robustness check against a second dataset and full source "
-    "criticism. Please go explore it, and tell me where the argument is weak — I'd genuinely love "
-    "your pushback. Thank you. [~25s]",
+    "It's all a live web exhibit, with more charts and the full method behind it. Please go explore "
+    "it, and tell me where the argument is weak — I'd genuinely love your pushback. Thank you. [~25s]",
 ]
 for slide, note in zip(prs.slides, NOTES):
     slide.notes_slide.notes_text_frame.text = note

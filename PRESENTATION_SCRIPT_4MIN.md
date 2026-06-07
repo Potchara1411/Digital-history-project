@@ -35,16 +35,16 @@ in 2010. There was no golden age of optimism to lose. So the real shift wasn't
 sentiment; it was **scale** and **political salience**: AI went from a *scientific*
 keyword to a *geopolitical* one — US–China, existential risk, regulation.
 
-### 6 — Why it's rigorous *(~35s)* — *droppable if over time*
-One methodological point I'm proud of. I almost used GDELT as my main source — but its
-AI counts jump from 347, to 53,000, to 3.9 *million* in two years. That's not AI
-exploding; it's the database expanding its own sources in 2015. The instrument
-changed, not the world. Catching that — source criticism — is the real scholarship.
+### 6 — Does it hold up? *(~35s)* — *droppable if over time*
+And does it hold up? To make sure that 2023 spike is real and not a quirk of my data,
+I checked it against a completely separate news database. The two track each other
+closely and in 2023 land at almost exactly the same value — so I'm confident the surge
+is real.
 
 ### 7 — Close + invite *(~25s)*
-It's all a live web exhibit — with a robustness check against a second dataset and
-full source criticism. Please go explore it, and tell me where the argument is weak —
-I'd genuinely love your pushback. Thank you.
+It's all a live web exhibit, with more charts and the full method behind it. Please go
+explore it, and tell me where the argument is weak — I'd genuinely love your pushback.
+Thank you.
 
 ---
 
