@@ -18,10 +18,10 @@ about AI. I looked at 30 years of books and news. My question is simple: *when* 
 become a big topic? And were people ever **happy** about it?
 
 ### 2 — My idea *(~45s)*
-A famous scholar, Kate Crawford, says AI is really about **power and control**. But she
-uses ideas, not data. She does not show *when* people's view of AI changed. So I use
-data: 30 years of books, and 13 years of news from around the world. I use old AI news
-as **evidence** about history.
+A famous scholar, Kate Crawford, wrote a book called **Atlas of AI**. She says AI is
+really about **power and control**. But she uses ideas, not data. She does not show
+*when* people's view of AI changed. So I use data: 30 years of books, and 13 years of
+news from around the world. I use old AI news as **evidence** about history.
 
 ### 3 — Finding 1 *(~40s)*
 My first finding is a surprise. In the 1990s, the word "artificial intelligence" went

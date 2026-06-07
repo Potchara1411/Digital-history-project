@@ -101,10 +101,10 @@ text(s, "potchara1411.github.io/Digital-history-project", Inches(1), Inches(5.45
 
 # ---- 2 · My idea ----
 s = prs.slides.add_slide(BLANK)
-header(s, "MY IDEA", "Adding data to a famous book")
+header(s, "MY IDEA", "Adding data to Atlas of AI")
 bullets(s, [
-    ("A famous scholar, Kate Crawford, says AI is really about power — but she uses ideas, "
-     "not data", INK),
+    ("Kate Crawford’s book Atlas of AI (2021) says AI is really about power — but she uses "
+     "ideas, not data", INK),
     ("I use data: 30 years of books + 13 years of news from around the world", INK),
     ("My question: WHEN did people’s view of AI change? I use old AI news as evidence", INK),
 ], Inches(1.15), Inches(2.05), Inches(11.3), Inches(4), size=22, gap=22)
@@ -168,10 +168,10 @@ NOTES = [
     "AI. I looked at 30 years of books and news. My question is simple: when did AI become a big "
     "topic? And were people ever happy about it? [~20s]",
 
-    "A famous scholar, Kate Crawford, says AI is really about power and control. But she uses "
-    "ideas, not data. She does not show WHEN people's view of AI changed. So I use data: 30 years "
-    "of books, and 13 years of news from around the world. I use old AI news as evidence about "
-    "history. [~45s]",
+    "A famous scholar, Kate Crawford, wrote a book called Atlas of AI. She says AI is really about "
+    "power and control. But she uses ideas, not data. She does not show WHEN people's view of AI "
+    "changed. So I use data: 30 years of books, and 13 years of news from around the world. I use "
+    "old AI news as evidence about history. [~45s]",
 
     "My first finding is a surprise. In the 1990s, the word 'artificial intelligence' went DOWN in "
     "books. People lost interest. Then a new word, 'machine learning,' became more popular. By "
