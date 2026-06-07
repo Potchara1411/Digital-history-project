@@ -1,5 +1,6 @@
 """Build the 4-minute in-progress presentation (ai_discourse_4min.pptx) — a tight
-5-slide promo version, separate from the full deck (build_slides.py).
+7-slide promo version in simple English (audience-friendly), separate from the full
+deck (build_slides.py).
 
     python ai_final.py
     python build_slides_4min.py
@@ -91,111 +92,107 @@ bg(s)
 accent_bar(s, 0, 0, EMU_W, Inches(0.22)); accent_bar(s, 0, Inches(7.28), EMU_W, Inches(0.22))
 text(s, "KAIST · DIGITAL HISTORY  ·  PROJECT IN PROGRESS", Inches(1), Inches(1.95), Inches(11.3),
      Inches(0.4), size=15, color=GOLD, bold=True, align=PP_ALIGN.CENTER)
-text(s, "From Scientific Optimism\nto Geopolitical Anxiety", Inches(1), Inches(2.45), Inches(11.3),
+text(s, "How the World Talks About AI\n1990 – 2023", Inches(1), Inches(2.45), Inches(11.3),
      Inches(2.0), size=44, color=INK, bold=True, align=PP_ALIGN.CENTER)
-text(s, "A Computational History of AI Discourse  ·  1990–2023", Inches(1), Inches(4.5), Inches(11.3),
+text(s, "A history of AI in books and news", Inches(1), Inches(4.5), Inches(11.3),
      Inches(0.6), size=21, color=MUTED, align=PP_ALIGN.CENTER)
 text(s, "potchara1411.github.io/Digital-history-project", Inches(1), Inches(5.45), Inches(11.3),
      Inches(0.4), size=15, color=BLUE, align=PP_ALIGN.CENTER)
 
-# ---- 2 · What's new ----
+# ---- 2 · My idea ----
 s = prs.slides.add_slide(BLANK)
-header(s, "WHAT'S NEW", "Filling a gap in Crawford's Atlas of AI")
+header(s, "MY IDEA", "Adding data to a famous book")
 bullets(s, [
-    ("Kate Crawford argues AI is a system of power — but qualitatively. She never shows "
-     "WHEN public discourse shifted, or how fast.", INK),
-    ("I add the quantitative timeline: 30 years of books (Ngram) + 13 years of global news "
-     "(Media Cloud, GDELT).", INK),
-    ("And I flip the question — not “what can AI do for historians?” but “what can historians "
-     "do with AI discourse as a primary source?”", INK),
-], Inches(1.15), Inches(2.05), Inches(11.3), Inches(4), size=21, gap=20)
+    ("A famous scholar, Kate Crawford, says AI is really about power — but she uses ideas, "
+     "not data", INK),
+    ("I use data: 30 years of books + 13 years of news from around the world", INK),
+    ("My question: WHEN did people’s view of AI change? I use old AI news as evidence", INK),
+], Inches(1.15), Inches(2.05), Inches(11.3), Inches(4), size=22, gap=22)
 
-# ---- 3 · The rebrand ----
+# ---- 3 · Finding 1 ----
 s = prs.slides.add_slide(BLANK)
-header(s, "FINDING 1", "AI didn't just grow — it declined, then rebranded")
+header(s, "FINDING 1", "First AI went down — then it changed its name")
 bullets(s, [
-    ("“Artificial intelligence” DECLINED in the 1990s — the AI Winter", BLUE),
-    ("“Machine learning” rose and overtook it by 2013 — the field quietly rebranded around "
-     "concrete method", RED),
+    ("In the 1990s, the word “artificial intelligence” went DOWN in books — people lost interest",
+     BLUE),
+    ("A new word, “machine learning,” became more popular and passed it by 2013", RED),
 ], Inches(0.95), Inches(1.72), Inches(11.6), Inches(1.0), size=16)
 picture_centered(s, FIG / "panel1_ngram.png", Inches(2.9))
 
-# ---- 4 · The explosion ----
+# ---- 4 · Finding 2 ----
 s = prs.slides.add_slide(BLANK)
-header(s, "FINDING 2", "Then the explosion — and it's real")
+header(s, "FINDING 2", "Then AI news exploded")
 bullets(s, [
-    ("After AlphaGo (2016) and ChatGPT (2022), AI’s SHARE of all news more than doubled — to "
-     "~1% in 2023", PURPLE),
-    ("I control for total news growth, so this is a genuine shift in attention, not just "
-     "“more news”", INK),
+    ("After AlphaGo (2016) and ChatGPT (2022), AI news grew very fast — about 1% of ALL news "
+     "by 2023", PURPLE),
+    ("There is more news today in general. But even so, AI grew much, much faster", INK),
 ], Inches(0.95), Inches(1.72), Inches(11.6), Inches(1.0), size=16)
 picture_centered(s, FIG / "panel3_share.png", Inches(2.9))
 
-# ---- 5 · The twist ----
+# ---- 5 · The surprise ----
 s = prs.slides.add_slide(BLANK)
-header(s, "FINDING 3 · THE TWIST", "It was never optimism")
+header(s, "FINDING 3 · THE SURPRISE", "People were never happy about AI")
 bullets(s, [
-    ("Tone of AI coverage was NEGATIVE every single year — even in 2010. No optimism to lose.",
+    ("The news about AI was negative EVERY year — even in 2010. People were never very hopeful",
      RED),
-    ("So the shift wasn’t hope → fear. It was SCALE + POLITICAL SALIENCE: AI went from a "
-     "scientific keyword to a geopolitical one.", INK),
+    ("The feeling did not change. What changed: AI became (1) a much BIGGER topic, and "
+     "(2) a POLITICAL one — countries competing, danger, control", INK),
 ], Inches(0.95), Inches(1.72), Inches(11.6), Inches(1.0), size=16)
 picture_centered(s, FIG / "panel5_tone.png", Inches(2.9))
 
-# ---- 6 · Does it hold up? (robustness) ----
+# ---- 6 · Is it real? ----
 s = prs.slides.add_slide(BLANK)
-header(s, "DOES IT HOLD UP?", "A second source agrees")
+header(s, "IS IT REAL?", "I checked with another source")
 bullets(s, [
-    ("To check the 2023 spike is real, I compared it against a separate news database", INK),
-    ("The two track closely and land at nearly the same value in 2023 — the surge isn’t a "
-     "fluke of my data", PURPLE),
+    ("Is the 2023 rise real, or just a mistake in my data? I compared it with a different "
+     "news database", INK),
+    ("Both show almost the same result — so the rise is real", PURPLE),
 ], Inches(0.95), Inches(1.72), Inches(11.6), Inches(1.0), size=16)
 picture_centered(s, FIG / "panel4_robustness.png", Inches(2.9))
 
-# ---- 5 · Close ----
+# ---- 7 · Close ----
 s = prs.slides.add_slide(BLANK)
 bg(s)
 accent_bar(s, 0, 0, EMU_W, Inches(0.22)); accent_bar(s, 0, Inches(7.28), EMU_W, Inches(0.22))
-text(s, "See the full exhibit — and tell me where it's weak", Inches(1), Inches(2.2), Inches(11.3),
+text(s, "See my website — and please share your questions", Inches(1), Inches(2.2), Inches(11.3),
      Inches(1.0), size=30, color=INK, bold=True, align=PP_ALIGN.CENTER)
-text(s, "Five interactive charts · a GDELT robustness check · full source criticism", Inches(1),
-     Inches(3.5), Inches(11.3), Inches(0.5), size=18, color=MUTED, align=PP_ALIGN.CENTER)
+text(s, "More charts and the full story are there", Inches(1), Inches(3.5), Inches(11.3),
+     Inches(0.5), size=18, color=MUTED, align=PP_ALIGN.CENTER)
 text(s, "potchara1411.github.io/Digital-history-project", Inches(1), Inches(4.2), Inches(11.3),
      Inches(0.5), size=22, color=BLUE, bold=True, align=PP_ALIGN.CENTER)
 text(s, "github.com/Potchara1411/Digital-history-project", Inches(1), Inches(4.95), Inches(11.3),
      Inches(0.4), size=14, color=MUTED, align=PP_ALIGN.CENTER)
 
 NOTES = [
-    "Hi — my DH project asks a simple question: when did 'AI' become inescapable, and was it ever "
-    "the hopeful story we assume? I trace how we've talked about AI for thirty years — in books and "
-    "in the news. [~20s]",
+    "Hello. My project is about AI — but not the technology. It is about how people TALK about "
+    "AI. I looked at 30 years of books and news. My question is simple: when did AI become a big "
+    "topic? And were people ever happy about it? [~20s]",
 
-    "My hook is Kate Crawford's Atlas of AI. She argues AI is a system of power — but it's a "
-    "qualitative argument; she never shows computationally WHEN the discourse shifted or how fast. "
-    "That's my gap: 30 years of book data plus 13 years of global news data. And I flip the usual "
-    "question — not what AI can do for historians, but what historians can do with AI discourse as a "
-    "primary source. [~45s]",
+    "A famous scholar, Kate Crawford, says AI is really about power and control. But she uses "
+    "ideas, not data. She does not show WHEN people's view of AI changed. So I use data: 30 years "
+    "of books, and 13 years of news from around the world. I use old AI news as evidence about "
+    "history. [~45s]",
 
-    "Finding one, and it's a surprise: AI didn't just grow. It DECLINED in the 1990s — the AI Winter "
-    "— and 'machine learning' overtook it by 2013, as the field quietly rebranded around concrete "
-    "method. [~40s]",
+    "My first finding is a surprise. In the 1990s, the word 'artificial intelligence' went DOWN in "
+    "books. People lost interest. Then a new word, 'machine learning,' became more popular. By "
+    "2013, it passed 'artificial intelligence.' So the field changed its name. [~40s]",
 
-    "Finding two: then the explosion. After AlphaGo and ChatGPT, AI's SHARE of all news more than "
-    "doubled — to about 1% in 2023. And I control for the total growth of news, so this is a real "
-    "shift in attention, not just more articles being published. [~40s]",
+    "My second finding: after 2016 and 2022 — after AlphaGo and ChatGPT — AI news exploded. In "
+    "2023, about 1 percent of ALL news in the world was about AI. Of course, there is more news "
+    "today in general. But even so, AI grew much, much faster. People really paid more attention to "
+    "AI. [~40s]",
 
-    "Finding three — the twist I'm proudest of. The conventional story is optimism turning to fear. "
-    "But the tone of AI coverage was negative every single year, even back in 2010. There was no "
-    "golden age of optimism to lose. So the real shift wasn't sentiment — it was SCALE and POLITICAL "
-    "SALIENCE: AI went from a scientific keyword to a geopolitical one, tied to US-China competition "
-    "and existential risk. [~50s]",
+    "Now the surprising part. Many people think: first we were happy about AI, then we became "
+    "afraid. But look. The news about AI was negative EVERY year — even in 2010. People were never "
+    "really happy about AI. So the FEELING did not change. Two things changed. One: AI became a "
+    "much BIGGER topic. Two: AI became a POLITICAL topic — about countries competing, like the US "
+    "and China, and about danger and control. [~50s]",
 
-    "And does it hold up? To make sure that 2023 spike is real and not a quirk of my data, I checked "
-    "it against a completely separate news database. The two track each other closely and in 2023 "
-    "land at almost exactly the same value — so I'm confident the surge is real. [~35s]",
+    "Is this real, or just a mistake in my data? To check, I used a different news database. The "
+    "two databases show almost the same result. So I am sure: the big rise in 2023 is real. [~35s]",
 
-    "It's all a live web exhibit, with more charts and the full method behind it. Please go explore "
-    "it, and tell me where the argument is weak — I'd genuinely love your pushback. Thank you. [~25s]",
+    "You can see everything on my website. Please look at it. And please share your questions and "
+    "opinions — I really want to hear them. Thank you. [~25s]",
 ]
 for slide, note in zip(prs.slides, NOTES):
     slide.notes_slide.notes_text_frame.text = note
