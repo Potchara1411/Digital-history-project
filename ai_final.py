@@ -57,6 +57,12 @@ gdelt_daily = pd.read_csv(DATA / "gdelt_ai_volume_daily_2017_2023.csv")
 gdelt_daily["year"] = pd.to_datetime(gdelt_daily["Date"]).dt.year
 gdelt_year = gdelt_daily[gdelt_daily["year"] <= 2023].groupby("year")["Value"].mean()
 
+# GDELT average tone of AI coverage (2010-2023). Tone is an average sentiment score,
+# so unlike the raw event count it is only mildly affected by GDELT's source growth.
+# 2010-2013 rest on small samples (<400 events) and are flagged in the chart.
+gdelt_tone = pd.read_csv(DATA / "gdelt_results.csv")
+gdelt_tone.columns = ["year", "event_count", "avg_tone"]
+
 events_ngram = {
     1997: "Deep Blue\nvs Kasparov",
     2011: "IBM Watson\nwins Jeopardy",
@@ -158,6 +164,35 @@ def draw_share(ax):
 TEAL = "#159A8C"
 
 
+def draw_tone(ax):
+    """Average tone of AI news coverage. The point: it is negative every year —
+    there was no 'optimism' era to lose. What changed was scale, not sentiment."""
+    g = gdelt_tone
+    small = g["event_count"] < 1000  # 2010-2013: small, noisier samples
+    ax.axhline(0, color="#888888", lw=1.2)
+    ax.text(2009.6, 0.12, "neutral", color=MUTED, fontsize=8, va="bottom")
+    ax.fill_between(g["year"], g["avg_tone"], 0, color=RED, alpha=0.08)
+    ax.plot(g["year"], g["avg_tone"], color=RED, lw=2.5, zorder=3)
+    ax.scatter(g.loc[~small, "year"], g.loc[~small, "avg_tone"], color=RED, s=45, zorder=4)
+    ax.scatter(g.loc[small, "year"], g.loc[small, "avg_tone"], facecolors="white",
+               edgecolors=RED, linewidths=1.5, s=45, zorder=4)
+    ax.annotate("Negative every single year —\nno 'optimism' phase to lose",
+                xy=(2018, float(g.loc[g.year == 2018, "avg_tone"].iloc[0])),
+                xytext=(2014.0, -2.2), color=FG, fontsize=9,
+                arrowprops=dict(arrowstyle="->", color=MUTED))
+    ax.text(2009.6, -6.7, "Hollow points (2010–2013): small samples (<400 articles), so noisier.",
+            color=MUTED, fontsize=7.5)
+    ax.set_ylim(-7, 0.8)
+    ax.set_title("GDELT: average tone of AI news coverage (2010–2023)\n"
+                 "Lower = more negative.  Tone is an average, so it resists the source-growth "
+                 "problem that ruins GDELT's counts.",
+                 color=FG, fontsize=11, fontweight="bold", pad=10)
+    ax.set_ylabel("Average tone (GDELT)", color=FG, fontsize=10)
+    ax.set_xticks(g["year"])
+    ax.set_xticklabels(g["year"], rotation=45, color=FG)
+    ax.tick_params(axis="y", colors=FG)
+
+
 def draw_robustness(ax):
     """Robustness check: GDELT and Media Cloud, two independent news datasets,
     plotted as normalized % of coverage over their 2017-2023 overlap."""
@@ -188,6 +223,7 @@ PANELS = [
 # but kept out of the main three-act narrative figure.
 EXTRA_PANELS = [
     (draw_robustness, "panel4_robustness.png"),
+    (draw_tone, "panel5_tone.png"),
 ]
 
 
