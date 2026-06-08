@@ -154,13 +154,16 @@ picture_centered(s, FIG / "panel4_robustness.png", Inches(2.9))
 s = prs.slides.add_slide(BLANK)
 bg(s)
 accent_bar(s, 0, 0, EMU_W, Inches(0.22)); accent_bar(s, 0, Inches(7.28), EMU_W, Inches(0.22))
-text(s, "See my website — and please share your questions", Inches(1), Inches(2.2), Inches(11.3),
-     Inches(1.0), size=30, color=INK, bold=True, align=PP_ALIGN.CENTER)
-text(s, "More charts and the full story are there", Inches(1), Inches(3.5), Inches(11.3),
-     Inches(0.5), size=18, color=MUTED, align=PP_ALIGN.CENTER)
-text(s, "potchara1411.github.io/Digital-history-project", Inches(1), Inches(4.2), Inches(11.3),
-     Inches(0.5), size=22, color=BLUE, bold=True, align=PP_ALIGN.CENTER)
-text(s, "github.com/Potchara1411/Digital-history-project", Inches(1), Inches(4.95), Inches(11.3),
+text(s, "See my website — and please share your questions", Inches(1), Inches(0.95), Inches(11.3),
+     Inches(0.9), size=28, color=INK, bold=True, align=PP_ALIGN.CENTER)
+text(s, "Scan to open the exhibit", Inches(1), Inches(1.95), Inches(11.3), Inches(0.5),
+     size=18, color=MUTED, align=PP_ALIGN.CENTER)
+_qr = Inches(2.85)
+s.shapes.add_picture(str(FIG / "qr_exhibit.png"), int((EMU_W - _qr) / 2), Inches(2.5),
+                     width=_qr, height=_qr)
+text(s, "potchara1411.github.io/Digital-history-project", Inches(1), Inches(5.6), Inches(11.3),
+     Inches(0.5), size=20, color=BLUE, bold=True, align=PP_ALIGN.CENTER)
+text(s, "github.com/Potchara1411/Digital-history-project", Inches(1), Inches(6.2), Inches(11.3),
      Inches(0.4), size=14, color=MUTED, align=PP_ALIGN.CENTER)
 
 NOTES = [
