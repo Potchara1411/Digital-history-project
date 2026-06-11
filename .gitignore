@@ -9,3 +9,4 @@ venv/
 *.pptx
 build_slides.py
 build_slides_4min.py
+PRESENTATION_SCRIPT*.md
