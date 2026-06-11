@@ -108,7 +108,6 @@ python3 -m venv venv
 source venv/bin/activate          # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 python ai_final.py        # regenerates all charts in figures/
-python build_slides.py    # rebuilds the presentation deck (optional)
 ```
 
 The script resolves paths relative to its own location, so it runs from any working
@@ -123,9 +122,6 @@ standalone panels for the exhibit: `panel1_ngram.png`, `panel2_volume.png`,
 ├── index.html              # the web exhibit (published via GitHub Pages)
 ├── style.css               # shared light theme
 ├── ai_final.py             # analysis + figure generation (single source of truth)
-├── build_slides.py         # builds the PowerPoint deck
-├── ai_discourse_slides.pptx# presentation (with speaker notes)
-├── PRESENTATION_SCRIPT.md  # the speaker script + Q&A prep
 ├── data/                   # source datasets (CSV)
 ├── figures/                # generated charts (regenerable)
 ├── requirements.txt
