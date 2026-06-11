@@ -7,3 +7,5 @@ venv/
 .claude/
 ~$*
 *.pptx
+build_slides.py
+build_slides_4min.py
